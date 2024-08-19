@@ -207,6 +207,7 @@ return {
       vim.list_extend(ensure_installed, {
         'pyright',
         'stylua', -- Used to format Lua code
+        'debugpy',
       })
 
       require('mason').setup()
