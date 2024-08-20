@@ -15,6 +15,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.opt.updatetime = 200
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = vim.api.nvim_create_augroup('HighlightYank', {})
