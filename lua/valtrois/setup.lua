@@ -34,3 +34,7 @@ autocmd('TextYankPost', {
 
 -- Hide some symbols. For obsidian plugin. TODO: it needs to be loaded BEFORE plugin itself
 vim.opt.conceallevel = 2
+
+
+-- This needs for a 'Pocco81/auto-save.nvim' plugin not conflict with a 'epwalsh/obsidian.nvim' plugin when you undo
+vim.cmd[[autocmd TextChanged,FocusLost,BufEnter * if &buftype ==# '' || &buftype == 'acwrite' | silent update | endif]]
