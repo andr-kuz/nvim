@@ -31,3 +31,6 @@ autocmd('TextYankPost', {
         })
     end,
 })
+
+-- Hide some symbols. For obsidian plugin. TODO: it needs to be loaded BEFORE plugin itself
+vim.opt.conceallevel = 2
