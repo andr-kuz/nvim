@@ -213,6 +213,11 @@ return {
             },
           },
         },
+        beancount = {
+          init_options = {
+            journal_file = '~/finance/main.beancount',
+          },
+        },
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
