@@ -18,6 +18,9 @@ vim.opt.updatetime = 200
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- adds syntax errors etc
+vim.diagnostic.config({ virtual_text = true })
+
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = vim.api.nvim_create_augroup('HighlightYank', {})
 
