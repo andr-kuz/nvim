@@ -189,18 +189,18 @@ return {
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local servers = {
-        pylsp = {
-          settings = {
-            pylsp = {
-              plugins = {
-                pycodestyle = {
-                   -- ignore = {'E501'},
-                   maxLineLength = 200,
-                },
-              },
-            },
-          },
-        },
+        -- pylsp = {
+        --   settings = {
+        --     pylsp = {
+        --       plugins = {
+        --         pycodestyle = {
+        --            -- ignore = {'E501'},
+        --            maxLineLength = 200,
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
         -- pyright = {},
         lua_ls = {
           settings = {
@@ -224,7 +224,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'debugpy',
-        'mypy',
+        'pyright',
       })
 
       require('mason').setup()
