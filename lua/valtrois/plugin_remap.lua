@@ -1,5 +1,6 @@
 local dap = require('dap')
 vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
+vim.keymap.set('n', '<leader>r', dap.continue)
 vim.keymap.set('n', '<leader>c', dap.continue)
 vim.keymap.set('n', '<leader>i', dap.step_into)
 vim.keymap.set('n', '<leader>o', dap.step_out)
