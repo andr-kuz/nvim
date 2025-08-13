@@ -9,7 +9,7 @@ vim.keymap.set({'n', 'x'}, '<leader>d', 'd')
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set('n', '<leader>t', '<Cmd>horizontal terminal<CR>')
+vim.keymap.set('n', '<leader>t', '<Cmd>horizontal terminal<CR>i')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 vim.keymap.set('t', '<C-r>', 'i<C-r>')
 vim.keymap.set('t', '<A-h>', '<C-\\><C-n><C-w>h', { noremap = true, silent = true })
