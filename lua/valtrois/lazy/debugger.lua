@@ -10,7 +10,7 @@ return {
       'rcarriga/nvim-dap-ui',
     },
     config = function (_, opts)
-      local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+      local path = vim.fn.exepath('python')
       require('dap-python').setup(path)
     end,
   },
