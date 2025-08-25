@@ -17,10 +17,10 @@ vim.keymap.set('t', '<A-j>', '<C-\\><C-n><C-w>j', { noremap = true, silent = tru
 vim.keymap.set('t', '<A-k>', '<C-\\><C-n><C-w>k', { noremap = true, silent = true })
 vim.keymap.set('t', '<A-l>', '<C-\\><C-n><C-w>l', { noremap = true, silent = true })
 
-vim.keymap.set('i', '<A-h>', '<C-\\><C-n><C-w>h', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-j>', '<C-\\><C-n><C-w>j', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-k>', '<C-\\><C-n><C-w>k', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-l>', '<C-\\><C-n><C-w>l', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-h>', '<C-n><C-w>hi', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-j>', '<C-n><C-w>ji', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-k>', '<C-n><C-w>ki', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-l>', '<C-n><C-w>li', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })
