@@ -6,7 +6,10 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.clipboard = 'unnamedplus'
+-- vim.opt.clipboard = 'unnamedplus'
+
+-- restrict vim from hiding some markup symbols like `__text__` in markdown files
+vim.opt.conceallevel = 0
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -35,9 +38,30 @@ autocmd('TextYankPost', {
     end,
 })
 
--- Hide some symbols. For obsidian plugin. TODO: it needs to be loaded BEFORE plugin itself
-vim.opt.conceallevel = 2
-
 
 -- This needs for a 'Pocco81/auto-save.nvim' plugin not conflict with a 'epwalsh/obsidian.nvim' plugin when you undo
 vim.cmd[[autocmd TextChanged,FocusLost,BufEnter * if &buftype ==# '' || &buftype == 'acwrite' | silent update | endif]]
+
+-- do not treat _ as part of the word
+-- vim.opt.iskeyword:remove("_")
+
+-- treat `.keymap` files as c-like
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = '*.keymap',  -- Or "corne.keymap" for the specific file
+  command = 'set filetype=c',  -- Change "c" to match your file type (e.g., "json")
+})
+
+-- Create undo directory if it doesn't exist (required for persistent undo)
+if vim.fn.isdirectory(vim.env.HOME .. '/.local/state/nvim/undo') == 0 then
+  vim.fn.mkdir(vim.env.HOME .. '/.local/state/nvim/undo', "p")
+end
+
+-- Persistent undo/redo history: Persist the undo tree for each file across sessions
+vim.opt.undofile = true  -- Enable persistent undo files
+vim.opt.undodir:prepend(vim.fn.expand('~/.local/state/nvim/undo//'))  -- Set directory for undo tree files
+
+vim.filetype.add({
+  extension = {
+    keymap = "c",  -- Treat .keymap as C files
+  },
+})

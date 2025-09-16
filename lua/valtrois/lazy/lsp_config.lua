@@ -226,6 +226,7 @@ return {
         'stylua', -- Used to format Lua code
         'debugpy',
         'pyright',
+        'clangd',
       })
 
       require('mason').setup()
