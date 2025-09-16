@@ -3,6 +3,9 @@ return {
         "mfussenegger/nvim-dap"
     },
     {
+        "mfussenegger/nvim-lua-debugger",
+    },
+    {
         "mfussenegger/nvim-dap-python",
         ft = "python",
         dependencies = {
@@ -11,7 +14,8 @@ return {
         },
         config = function(_, opts)
             local path = "/usr/bin/python"
-            require("dap-python").setup(path)
+            local dap_py = require("dap-python")
+            dap_py.setup(path)
         end
     },
     {
@@ -56,15 +60,25 @@ return {
                     }
                 }
             )
-            dap.listeners.after.event_initialized["dapui_config"] = function()
+            dap.listeners.after.event_initialized.dapui_config = function()
                 dapui.open()
             end
-            -- dap.listeners.before.event_terminated["dapui_config"] = function()
-            --     dapui.close()
-            -- end
-            -- dap.listeners.before.event_exited["dapui_config"] = function()
-            --     dapui.close()
-            -- end
+            -- dap.configurations.python = {
+            --     {
+            --         justMyCode = false,
+            --         type = "python",
+            --         request = 'launch',
+            --         name = 'launch file',
+            --         program = '${file}',
+            --         pythonPath = function()
+            --             local venv_path = os.getenv("VIRTUAL_ENV")
+            --             if venv_path then
+            --             return venv_path .. "/bin/python"
+            --             end
+            --             return "/usr/bin/python3"
+            --         end
+            --     },
+            -- }
         end
     }
 }
