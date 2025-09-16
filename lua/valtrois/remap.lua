@@ -30,3 +30,6 @@ vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>e', '<Cmd>Ex<CR>')
 vim.keymap.set('n', '<leader>E', '<Cmd>vsplit ' .. vim.fs.dirname(vim.fn.expand('$MYVIMRC')) .. '/lua/valtrois/remap.lua<CR><Cmd>setlocal bufhidden=wipe<CR><Cmd>lcd %:p:h<CR>')
 vim.keymap.set('n', '<leader>V', '<Cmd>vsplit ~/zettelkasten/Vim.md<CR><Cmd>setlocal bufhidden=wipe<CR><Cmd>lcd %:p:h<CR>')
+
+-- treat ctrl-c as esc
+vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true })
