@@ -8,6 +8,9 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.clipboard = 'unnamedplus'
 
+-- restrict vim from hiding some markup symbols like `__text__` in markdown files
+vim.opt.conceallevel = 0
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 
@@ -35,9 +38,9 @@ autocmd('TextYankPost', {
     end,
 })
 
--- Hide some symbols. For obsidian plugin. TODO: it needs to be loaded BEFORE plugin itself
-vim.opt.conceallevel = 2
-
 
 -- This needs for a 'Pocco81/auto-save.nvim' plugin not conflict with a 'epwalsh/obsidian.nvim' plugin when you undo
 vim.cmd[[autocmd TextChanged,FocusLost,BufEnter * if &buftype ==# '' || &buftype == 'acwrite' | silent update | endif]]
+
+-- do not treat _ as part of the word
+-- vim.opt.iskeyword:remove("_")
