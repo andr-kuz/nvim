@@ -65,3 +65,5 @@ vim.filetype.add({
     keymap = "c",  -- Treat .keymap as C files
   },
 })
+
+vim.g.netrw_banner = 0  -- disable file explorer banner
